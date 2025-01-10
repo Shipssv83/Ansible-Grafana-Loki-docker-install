@@ -33,17 +33,17 @@
   - name: include ufw play
     ansible.builtin.import_playbook: ufw.yml
 
-  - name: include docker install play
-    ansible.builtin.import_playbook: docker-install.yml
+  - name: include project install play
+    ansible.builtin.import_playbook: project-install.yml
 
-  - name: grafana loki docker install
+  - name: grafana loki project install
     become: true
     hosts: '{{ hosts }}'
     vars:
       grafana_web_port: '3000'
 
     roles:
-    - roles/grafana-docker-install
+    - roles/grafana-project-install
 
     tasks:
 
